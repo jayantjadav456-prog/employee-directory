@@ -1,98 +1,168 @@
 # Employee Directory – Full Stack Application
 
-## 📌 Project Overview
-
-A full-stack Employee Directory application built using **React (frontend)** and **Python (FastAPI) (backend)**.
-The application allows users to search employees efficiently and view employee details.
+This is a full-stack Employee Directory application built using React for the frontend and Python (FastAPI) for the backend.  
+The application allows users to search and view employee details efficiently.
 
 ---
 
-## 🗂 Project Structure
+## Tech Stack
 
-```
-employee-directory/
-├── frontend/   # React application
-└── backend/    # FastAPI backend
-```
+Frontend:
+- React (Vite)
+- JavaScript
+- CSS
+
+Backend:
+- Python (FastAPI)
+
+Database:
+- SQLite
+
+Version Control:
+- Git & GitHub
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Steps
 
 ### Backend Setup
+1. Navigate to backend folder:
+   ```bash
+   cd backend
+##Frontend Setup
 
-```bash
-cd backend
-python -m venv venv
-venv\Scripts\activate   # On Windows
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
+1.Navigate to frontend folder:
 
-Backend runs at:
-
-```
-http://127.0.0.1:8000
-```
-
----
-
-### Frontend Setup
-
-```bash
 cd frontend
+
+
+2.Install dependencies:
+
 npm install
+
+
+3.Run frontend:
+
 npm run dev
-```
 
-Frontend runs at:
 
-```
+4.Open browser:
+
 http://localhost:5173
-```
+
+##Database Choice
+
+SQLite is used as the database for this project.
+
+Reasons:
+
+Lightweight and easy to configure
+
+No external database server required
+
+Suitable for small-scale applications and assignments
+
+Stores employee data in a single local file
+
+##Search Performance Optimization
+
+Search performance is optimized using the following techniques:
+
+1.Frontend:
+
+Debouncing is implemented in the search bar to prevent unnecessary API calls while typing.
+
+API requests are sent only after the user stops typing for a short duration.
+
+2.Backend:
+
+Search filtering is handled at the database level.
+
+Only relevant employee records are returned instead of sending the entire dataset.
+
+These optimizations reduce network calls and improve application performance.
+
+##Folder Structure
+
+employee-directory/
+│
+├── backend/
+│   ├── app/
+│   │   ├── models/
+│   │   │   ├── __init__.py
+│   │   │   └── employee.py
+│   │   │
+│   │   ├── routers/
+│   │   │   ├── __init__.py
+│   │   │   └── employee_router.py
+│   │   │
+│   │   ├── service/
+│   │   │   ├── __init__.py
+│   │   │   └── employee_service.py
+│   │   │
+│   │   ├── __init__.py
+│   │   ├── database.py
+│   │   ├── schemas.py
+│   │   └── main.py
+│   │
+│   ├── employees.db
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── public/
+│   │   └── vite.svg
+│   │
+│   ├── src/
+│   │   ├── assets/
+│   │   │   └── react.svg
+│   │   │
+│   │   ├── components/
+│   │   │   ├── EmployeeCard.jsx
+│   │   │   ├── EmployeeList.jsx
+│   │   │   └── SearchBar.jsx
+│   │   │
+│   │   ├── hooks/
+│   │   │   └── useDebounce.js
+│   │   │
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   ├── App.css
+│   │   └── index.css
+│   │
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.js
+│   └── eslint.config.js
+│
+├── README.md
+└── .gitignore
+
+
 
 ---
+## Reusable Components
 
-## 🗄 Database Choice
+.SearchBar – Handles user input
 
-* **SQLite** is used for simplicity and fast local development.
-* It requires no separate server setup and is ideal for small-to-medium datasets.
-* The database file is stored as `employees.db`.
+.EmployeeCard – Displays employee details
 
----
+.EmployeeList – Renders the list of employees
 
-## 🔍 Search Performance Optimization
+This improves code readability, reusability, and maintainability.
 
-* **Debounced search** on the frontend to reduce unnecessary API calls while typing.
-* **Backend-side filtering** ensures only relevant employee data is returned.
-* Indexed search fields improve query performance.
-* Clean separation of routes, services, and models improves scalability.
+ ##Features
 
----
+.Search employees by name/designation
 
-## ♻️ Reusable Frontend Components
+.Fast and optimized API calls
 
-* `SearchBar` – Handles employee search input
-* `EmployeeCard` – Displays individual employee details
-* `EmployeeList` – Renders list of employees dynamically
+.Clean UI with reusable components
+
+.Full separation of frontend and backend
+
 
 ---
-
-## ✅ Features
-
-* Search employees by name or designation
-* Modular and reusable UI components
-* RESTful API using FastAPI
-* Clean project structure
-
----
-
-## 👤 Author
-
-**Jayant Jadav**
-
----
-
-## 🔗 Repository
-
-[https://github.com/jayantjadav456-prog/employee-directory](https://github.com/jayantjadav456-prog/employee-directory)
